@@ -1,0 +1,24 @@
+<form [formGroup]="addForm" style="margin-top: 15px;">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control" formControlName="name">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+        <label for="contact">Contact</label>
+        <input type="text" name="contact" id="contact" class="form-control" formControlName="contact">
+    </div>
+    <div class="form-group" *ngIf="errorMessage" style="margin-top:8px;">
+        <div class="alert alert-danger">
+            {{errorMessage}}
+        </div>
+    </div>
+    <div class="form-group" style="margin-top: 15px;">
+        <button class="btn btn-primary" *ngIf="!forUpdate" (click)="addContact()" style="margin-right: 8px;">Add</button>
+        <button class="btn btn-primary" *ngIf="forUpdate" (click)="updateContact()" style="margin-right: 8px;">Update</button>
+        <button class="btn btn-secondary" (click)="resetForm()">Reset</button>
+    </div>
+</form>
